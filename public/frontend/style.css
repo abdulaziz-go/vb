@@ -1,0 +1,480 @@
+:root {
+  --green-dark: #064e3b;
+  --green-main: #047857;
+  --green-light: #10b981;
+  --green-glow: rgba(16,185,129,0.6);
+
+  --bg-main: #ecfdf5;
+  --bg-light: #f0fdfa;
+
+  --glass: rgba(255, 255, 255, 0.78);
+  --glass-dark: rgba(255,255,255,0.15);
+  --blur: blur(18px);
+
+  --radius: 16px;
+  --radius-sm: 10px;
+
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+  --shadow-strong: 0 20px 45px rgba(0,0,0,0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(
+    circle at top left,
+    #022c22,
+    #021c16
+  );
+  color: #ecfdf5;
+}
+
+/* ================= PARTICLES BG ================= */
+#particles-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+/* ================= LAYOUT ================= */
+sout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: 260px;
+  padding: 26px;
+  background: linear-gradient(
+    180deg,
+    var(--green-dark),
+    var(--green-main)
+  );
+  color: #fff;
+  box-shadow: 6px 0 25px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+
+.logo img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.28);
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: var(--blur);
+  transition: all 0.35s ease;
+}
+
+.nav-btn i {
+  font-size: 18px;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: linear-gradient(135deg, #10b981, #047857);
+  color: #022c22;
+  box-shadow: 0 8px 25px var(--green-glow);
+  transform: translateX(6px);
+}
+
+/* ================= CONTENT ================= */
+.content {
+  flex: 1;
+  padding: 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: black;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+/* ================= GLASS ================= */
+.glass {
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  background: rgba(255,255,255,0.85);
+}
+
+/* ================= UPLOAD ================= */
+.upload-box {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.file-label {
+/*display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+ background: linear-gradient(
+    135deg,
+    var(--green-main),
+    var(--green-light)
+  );
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.25s ease;*/
+display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: linear-gradient(
+    135deg,
+    var(--green-main),
+    var(--green-light)
+  );
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 25px var(--green-glow);
+  transition: all 0.25s ease;
+
+}
+
+.file-label:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px var(--green-glow);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: linear-gradient(
+    135deg,
+    var(--green-main),
+    var(--green-light)
+  );
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 25px var(--green-glow);
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px var(--green-glow);
+}
+
+/* ================= SECTIONS ================= */
+.section {
+  margin-top: 28px;
+  padding: 22px;
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: black;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ================= TABLE ================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: var(--radius);
+  color: black;
+}
+
+thead {
+  background: rgba(6,78,59,0.1);
+}
+
+th, td {
+  padding: 14px 16px;
+  font-size: 14px;
+}
+
+th {
+  font-weight: 700;
+}
+
+tbody tr {
+  transition: background 0.25s ease;
+}
+
+tbody tr:hover {
+  background: rgba(16,185,129,0.18);
+}
+
+/* ================= TABLE BUTTONS ================= */
+td button {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--green-main);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+td button:hover {
+  background: var(--green-light);
+  box-shadow: 0 4px 15px var(--green-glow);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.logo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: white;
+  padding: 6px;
+}
+
+.logo span {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+#particles-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#particles-js {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Barcha kontent particles ustida bo‘lsin */
+.layout {
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar {
+  /*background: linear-gradient(
+    180deg,
+    #022c22,
+    #021c16
+  );*/
+  background: rgba(255,255,255,0.85);
+  color: #fdecec; 
+  
+}
+
+/*strong {
+  color: black;
+}*/
+
+.brand strong {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #10b981, #047857);
+    color: #022c22;
+    box-shadow: 0 8px 25px var(--green-glow);
+    transform: translateX(6px);
+} 
+
+.brand span {
+  font-size: 11px;
+  opacity: 0.8;
+  letter-spacing: 2px;
+}
+.login-wrapper {
+   position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  z-index: 10;
+}
+
+.login-card {
+  width: 380px;
+  padding: 32px;
+  text-align: center;
+}
+
+.login-title {
+  margin-bottom: 24px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.login-field {
+  margin-bottom: 16px;
+} 
+
+.login-field input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.15);
+  outline: none;
+}
+
+.login-field input:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16,185,129,0.25);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 14px;
+  margin-top: 10px;
+}
+
+
+.error {
+  margin-top: 14px;
+  color: #dc2626;
+  font-size: 14px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: none;
+} 
+
+/* LOGIN FULL CENTER FIX */
+#loginBox {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* === LOGIN ANIMATIONS === */
+#loginBox {
+  animation: loginFadeIn 0.6s ease forwards;
+}
+
+@keyframes loginFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* SUCCESS HIDE */
+.login-hide {
+  animation: loginFadeOut 0.5s ease forwards;
+}
+
+@keyframes loginFadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* ADMIN SHOW */
+#adminLayout {
+  animation: adminFadeIn 0.6s ease forwards;
+}
+
+@keyframes adminFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ERROR SHAKE */
+.login-shake {
+  animation: shake 0.35s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <title>Web Ombor | Admin</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<!-- PARTICLES BACKGROUND -->
+<div id="particles-js"></div>
+
+<!-- ================= LOGIN ================= -->
+<div id="loginBox" class="login-wrapper">
+  <div class="login-card glass">
+    <h2 class="login-title">Admin Login</h2>
+
+    <input
+      id="loginUsername"
+      class="login-input"
+      placeholder="Username"
+      autocomplete="username"
+      type="text"
+    />
+
+    <input
+      id="loginPassword"
+      class="login-input"
+      type="password"
+      placeholder="Password"
+      autocomplete="current-password"
+    />
+
+    <!-- MUHIM: type="button" -->
+    <button
+      type="button"
+      class="btn-primary login-btn"
+      onclick="loginAdmin()"
+    >
+      Kirish
+    </button>
+
+    <p id="loginError" class="error"></p>
+  </div>
+</div>
+
+<!-- ================= ADMIN PANEL ================= -->
+<div class="layout" id="adminLayout" style="display:none;">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar glass">
+    <div class="logo">
+      <img src="assets/hoto.jpg" alt="Logo">
+      <strong>BARQAROR<br>SARMOYA GROUP</strong>
+    </div>
+
+    <nav>
+      <!-- MUHIM: hammasi type="button" -->
+      <button type="button" class="nav-btn active" onclick="showSection('active')">
+        <i class="fa-solid fa-file-lines"></i>
+        Faol hujjatlar
+      </button>
+
+      <button type="button" class="nav-btn" onclick="showSection('signed')">
+        <i class="fa-solid fa-pen-nib"></i>
+        Imzolangan
+      </button>
+
+      <button type="button" class="nav-btn" onclick="showSection('archived')">
+        <i class="fa-solid fa-box-archive"></i>
+        Arxiv
+      </button>
+    </nav>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <header class="header glass">
+      <h1>📂 Hujjatlar boshqaruvi</h1>
+
+      <div class="upload-box">
+        <label class="file-label">
+          <input type="file" id="file" hidden>
+          <i class="fa-solid fa-upload"></i>
+          Fayl tanlash
+        </label>
+
+        <!-- MUHIM -->
+        <button
+          type="button"
+          class="btn-primary"
+          onclick="upload()"
+        >
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          Yuklash
+        </button>
+      </div>
+    </header>
+
+    <!-- ================= FAOL ================= -->
+    <section id="active" class="section glass">
+      <h2>Faol hujjatlar</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Fayl</th>
+            <th>Status</th>
+            <th>Sana</th>
+            <th>Amallar</th>
+          </tr>
+        </thead>
+        <tbody id="docs"></tbody>
+      </table>
+    </section>
+
+    <!-- ================= IMZOLANGAN ================= -->
+    <section id="signed" class="section glass hidden">
+      <h2>Imzolangan</h2>
+      <table>
+        <tbody id="signedTable"></tbody>
+      </table>
+    </section>
+
+    <!-- ================= ARXIV ================= -->
+    <section id="archived" class="section glass hidden">
+      <h2>Arxiv</h2>
+      <table>
+        <tbody id="archivedTable"></tbody>
+      </table>
+    </section>
+
+  </main>
+</div>
+
+<!-- PARTICLES SCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 80 },
+    color: { value: "#ffffff" },
+    size: { value: 2 },
+    line_linked: {
+      enable: true,
+      color: "#ffffff",
+      opacity: 0.25
+    },
+    move: { speed: 1.6 }
+  }
+});
+</script>
+
+<!-- ADMIN JS -->
+<script src="admin.js"></script>
+
+</body>
+</html>
+
+

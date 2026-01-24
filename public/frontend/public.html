@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <title>Web Ombor – Hujjat</title>
+</head>
+<body>
+  <h1>📄 Hujjat ma’lumotlari</h1>
+  <div id="doc"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    fetch(`http://localhost:3000/documents/${id}`)
+      .then(res => res.json())
+      .then(d => {
+        document.getElementById("doc").innerHTML = `
+          <p><b>ID:</b> ${d.id}</p>
+          <p><b>Status:</b> ${d.status}</p>
+          <p><b>Tasdiqlovchi:</b> ${d.signer}</p>
+          <p><b>Sana:</b> ${new Date(d.created_at).toLocaleString()}</p>
+        `;
+      });
+  </script>
+</body>
+</html>
