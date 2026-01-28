@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: web_ombor
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    build:
+      context: ./backend
+    restart: always
+    ports:
+      - "8080:3000"
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: web_ombor
+      DB_HOST: db
+      DB_PORT: 5432
+      APP_URL: http://80.240.18.41:8080
+    depends_on:
+      - db
+    volumes:
+      - ./backend/storage:/app/storage
+
+  frontend:
+    build:
+      context: ./public/frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

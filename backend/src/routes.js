@@ -14,7 +14,7 @@ import path from "path";
 const router = express.Router();
 
 /* 🔗 SERVER MANZILI (KEYIN DOMAIN QO‘YAMIZ) */
-const BASE_URL = "http://127.0.0.1:3000";
+const BASE_URL = process.env.APP_URL || "http://localhost:8080";
 
 /* ================= MULTER ================= */
 const storage = multer.diskStorage({

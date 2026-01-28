@@ -1,16 +1,21 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
+import fs from "fs";
 import routes from "./routes.js";
 
 const app = express();
 
+/* ================= DIR CHECK ================= */
+const __dirname = path.resolve();
+const uploadDir = path.join(__dirname, "storage/uploads");
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
 /* ================= BASIC MIDDLEWARE ================= */
 app.use(cors());
 app.use(express.json());
-
-/* ================= STATIC FILES (PDF, FILES) ================= */
-const __dirname = path.resolve();
 
 app.use(
   "/files",

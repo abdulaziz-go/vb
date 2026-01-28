@@ -1,6 +1,6 @@
 /* ================= CONFIG ================= */
 const SESSION_TIME = 60 * 60 * 1000; // 1 soat
-const BASE_URL = "http://127.0.0.1:3000";
+const BASE_URL = `${window.location.protocol}//${window.location.hostname}:8080`;
 
 /* ================= SESSION HELPERS ================= */
 function isSessionValid() {
