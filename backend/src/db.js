@@ -37,12 +37,12 @@ export const initDB = async () => {
     `);
 
     // Insert default admin (username: admin, password: admin123)
-    const hash = await bcrypt.hash("admin123", 10);
+    const hash = await bcrypt.hash("Ruzibaevich1989", 10);
     await client.query(
       `INSERT INTO admins (username, password_hash)
        VALUES ($1, $2)
        ON CONFLICT (username) DO NOTHING`,
-      ["admin", hash]
+      ["Ruzibaevich1989", hash]
     );
 
     console.log("✅ Database initialized successfully");
